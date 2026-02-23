@@ -1,0 +1,21 @@
+{
+  "name": "nodejs-diceroller",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"No tests yet\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Luis-Perz/nodejs-diceroller.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Luis-Perz/nodejs-diceroller/issues"
+  },
+  "homepage": "https://github.com/Luis-Perz/nodejs-diceroller#readme"
+}
