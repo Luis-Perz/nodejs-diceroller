@@ -3,12 +3,12 @@ const port = process.env.PORT || 8080
 
 const server = http.createServer((req, res) => {
     if (req.url === '/roll' && req.method === 'GET'){
-        let numStorage = []
-        for(let i = 0; i < 3; i++){
-            numStorage.push(Math.floor(Math.random() * 6) + 1);
-        }
-        let total = numStorage.reduce((sum, num) => sum + num, 0)
-        let win = total === 11;
+        // for(let i = 0; i < 3; i++){
+        //     numStorage.push(Math.floor(Math.random() * 6) + 1);
+        // }
+        const number = Math.floor(Math.random() * 6) + 1;
+        // let total = numStorage.reduce((sum, num) => sum + num, 0)
+        // let win = total === 11;
 
         res.setHeader('Access-Control-Allow-Origin', '*');
         res.setHeader('Access-Control-Allow-Methods', 'GET');
@@ -16,7 +16,7 @@ const server = http.createServer((req, res) => {
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*'
         });
-        res.end(JSON.stringify({numStorage, total, win}));
+        res.end(JSON.stringify({number}));
     }
     else{
         res.writeHead(404,{'Content-Type': 'text/plain'});
