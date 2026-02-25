@@ -10,6 +10,8 @@ const server = http.createServer((req, res) => {
         let total = numStorage.reduce((sum, num) => sum + num, 0)
         let win = total === 11;
 
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Allow-Methods', 'GET');
         res.writeHead(200, {
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*'

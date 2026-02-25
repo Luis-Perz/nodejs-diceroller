@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Luis-Perz/nodejs-diceroller/issues"
   },
-  "homepage": "https://github.com/Luis-Perz/nodejs-diceroller#readme"
+  "homepage": "https://github.com/Luis-Perz/nodejs-diceroller#readme",
+  "dependencies": {
+    "cors": "^2.8.6"
+  }
 }
