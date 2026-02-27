@@ -1,14 +1,26 @@
 import http from 'http';
-const port = process.env.PORT || 8080
-
+const port = process.env.PORT || 5501
+const storage = []
 const server = http.createServer((req, res) => {
     if (req.url === '/roll' && req.method === 'GET'){
-        // for(let i = 0; i < 3; i++){
-        //     numStorage.push(Math.floor(Math.random() * 6) + 1);
-        // }
-        const number = Math.floor(Math.random() * 6) + 1;
-        // let total = numStorage.reduce((sum, num) => sum + num, 0)
-        // let win = total === 11;
+
+        let number = ``;
+        let msg = '';
+        let result = '';
+        if (storage.length !== 3){
+            number = Math.floor(Math.random() * 6) + 1;
+            storage.push(number);
+        }
+        else if (storage.length === 3){
+            msg = "You already rolled 3 times";
+            let total = storage.reduce((sum, num) => sum + num, 0);
+            if (total === 11){
+                result = "true";
+            }
+            else{
+                result = "false";
+            }
+        }
 
         res.setHeader('Access-Control-Allow-Origin', '*');
         res.setHeader('Access-Control-Allow-Methods', 'GET');
@@ -16,7 +28,10 @@ const server = http.createServer((req, res) => {
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*'
         });
-        res.end(JSON.stringify({number}));
+        res.end(JSON.stringify({number,msg, result}));
+    }
+    else if (req.url === '/reset' && req.method === 'GET'){
+        storage = []
     }
     else{
         res.writeHead(404,{'Content-Type': 'text/plain'});
